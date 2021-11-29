@@ -4,22 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"
+      integrity="sha512-eP6ippJojIKXKO8EPLtsUMS+/sAGHGo1UN/38swqZa1ypfcD4I0V/ac5G3VzaHfDaklFmQLEs51lhkkVaqg60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
     <link rel="stylesheet" href="./style.css" />
     <title>ST6-BM</title>
   </head>
   <body>
-    <div>
-      <img
-        id="settings-icon"
-        class="settings-icon"
-        src="./media/settings.png"
-        alt="settings-icon"
-      />
-    </div>
-    <div>
-      <button id="btn-start">Start</button>
-      <button id="btn-pause">Pause</button>
-      <button id="btn-stop">Stop</button>
+    <div class="container">
+      <div class="item">
+        <img
+          id="settings-icon"
+          class="settings-icon"
+          src="./media/settings.png"
+          alt="settings-icon"
+        />
+      </div>
+      <div class="item">
+        <button id="btn-start">Start</button>
+        <button id="btn-pause">Pause</button>
+        <button id="btn-stop">Stop</button>
+      </div>
     </div>
 
     <script defer>
@@ -27,6 +36,30 @@
       const pauseBtn = document.querySelector("#btn-pause");
       const stopBtn = document.querySelector("#btn-stop");
       const settingIcon = document.querySelector("#settings-icon");
+
+      const ws = new WebSocket("ws://localhost:3333");
+
+      ws.onopen = (ev) => {
+        console.log(ev);
+      };
+      ws.onmessage = (ev) => {
+        console.log(ev);
+        const data = JSON.parse(ev.data);
+        const type = data?.type;
+        console.log(data?.type, data?.payload);
+        if (type) {
+          switch (type) {
+            case "motor-on": {
+              gsap.to(".settings-icon", { rotation: "+=36", duration: 0.1 });
+              console.log("kur");
+              break;
+            }
+            default: {
+              breka;
+            }
+          }
+        }
+      };
 
       startBtn.addEventListener("click", (e) => {
         fetch("http://localhost:3333/start");

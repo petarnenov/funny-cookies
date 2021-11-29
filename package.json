@@ -5,6 +5,7 @@
   },
   "scripts": {
     "start": "lerna run start --parallel",
-    "debug": "lerna run debug --parallel"
+    "debug": "lerna run debug --parallel",
+    "format":"lerna run format --parallel"
   }
 }

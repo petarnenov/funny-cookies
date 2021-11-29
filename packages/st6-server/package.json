@@ -20,13 +20,16 @@
   "scripts": {
     "debug": "nodemon src/index.ts",
     "start": "ts-node src/index.ts",
+    "format":"prettier -w src/*",
     "prepublish": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
     "@pnp-js/st6-bm": "^1.1.7",
+    "@types/ws": "^8.2.1",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "ws": "^8.3.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

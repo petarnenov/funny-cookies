@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import { WebSocket, WebSocketServer } from "ws";
 import { bm } from "./machine";
 
 const app = express();
@@ -26,4 +27,22 @@ app.get("/stop", (req, res) => {
 
 const server = app.listen(3333, () => {
   "Server start listenig on port: 3333";
+});
+
+const wss = new WebSocketServer({ server });
+
+wss.on("connection", (ws: WebSocket) => {
+  //connection is up, let's add a simple simple event
+  ws.on("message", (message: string) => {
+    //log the received message and send it back to the client
+    console.log("received: %s", message);
+    ws.send(`Hello, you sent -> ${message}`);
+  });
+
+  //send immediatly a feedback to the incoming connection
+  //ws.send("Hi there, I am a WebSocket server");
+
+  bm.eventBus.on("motor-on", (ev) => {
+    ws.send(JSON.stringify({ type: "motor-on" }));
+  });
 });

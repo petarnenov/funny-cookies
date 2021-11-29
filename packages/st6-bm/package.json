@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "start": "ts-node src/index.ts",
+    "format": "prettier -w src/*",
     "debug": "nodemon src/index.ts",
     "test": "jest",
     "test:watch": "jest --watchAll",

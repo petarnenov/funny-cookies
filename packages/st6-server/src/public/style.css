@@ -1,7 +1,12 @@
-.settings-icon {
-  transition: 2s;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
 }
 
-.settings-icon:hover {
-  transform: rotate(360deg);
+.item {
+  width: 100px;
+  margin: auto;
 }
