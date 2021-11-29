@@ -1,0 +1,7 @@
+.settings-icon {
+  transition: 2s;
+}
+
+.settings-icon:hover {
+  transform: rotate(360deg);
+}

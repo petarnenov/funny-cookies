@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>ST6-BM</title>
+  </head>
+  <body>
+    <div>
+      <img
+        id="settings-icon"
+        class="settings-icon"
+        src="./media/settings.png"
+        alt="settings-icon"
+      />
+    </div>
+    <div>
+      <button id="btn-start">Start</button>
+      <button id="btn-pause">Pause</button>
+      <button id="btn-stop">Stop</button>
+    </div>
+
+    <script defer>
+      const startBtn = document.querySelector("#btn-start");
+      const pauseBtn = document.querySelector("#btn-pause");
+      const stopBtn = document.querySelector("#btn-stop");
+      const settingIcon = document.querySelector("#settings-icon");
+
+      startBtn.addEventListener("click", (e) => {
+        fetch("http://localhost:3333/start");
+      });
+
+      pauseBtn.addEventListener("click", (e) => {
+        fetch("http://localhost:3333/pause");
+      });
+
+      stopBtn.addEventListener("click", (e) => {
+        fetch("http://localhost:3333/stop");
+      });
+    </script>
+  </body>
+</html>
