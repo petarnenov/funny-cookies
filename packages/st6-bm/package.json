@@ -1,6 +1,6 @@
 {
   "name": "@pnp-js/st6-bm",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "lib/index.js",
   "types": "index.d.ts",
   "files": [
@@ -32,6 +32,5 @@
   "directories": {
     "lib": "lib"
   },
-  "dependencies": {},
   "description": ""
 }
