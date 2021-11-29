@@ -1,6 +1,6 @@
 {
   "name": "@pnp-js/st6-server",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "Petar Nenov <petarnenovpetrov@gmail.com>",
@@ -20,12 +20,12 @@
   "scripts": {
     "debug": "nodemon src/index.ts",
     "start": "ts-node src/index.ts",
-    "format":"prettier -w src/*",
+    "format": "prettier -w src/*",
     "prepublish": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@pnp-js/st6-bm": "^1.1.7",
+    "@pnp-js/st6-bm": "^1.1.8",
     "@types/ws": "^8.2.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
