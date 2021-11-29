@@ -68,6 +68,7 @@ export class BM {
 
     /* BMOven */
     this.oven.operations.push({ action: "oven-heat", slots: [4, 5] });
+    this.oven.stopDependacies.push(this.conveyor);
     /* */
   }
   start() {
