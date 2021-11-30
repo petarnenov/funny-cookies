@@ -3,6 +3,7 @@ import {
   handleExtruderExtrude,
   handleMotorStep,
   handleOvenHeat,
+  handleOvenTemp,
   handleStamperStamp,
 } from "./message-handlers.js";
 
@@ -46,7 +47,11 @@ const messageDispatcher = (message) => {
       break;
     }
     case "oven-heat": {
-      handleOvenHeat(payload);
+      handleOvenTemp();
+      break;
+    }
+    case "oven-temp": {
+      handleOvenTemp(payload);
       break;
     }
   }

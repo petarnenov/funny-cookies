@@ -9,6 +9,8 @@ import {
 export class BMOven extends BMUnit {
   static readonly MIN_TEMP = 10;
   static readonly MAX_TEMP = 20;
+  static readonly DECREASE_TEMP = 2;
+  static readonly INCREASE_TEMP = 4;
   temp: number = 0;
   heating: boolean = false;
   constructor(bmEventEmitter: EventEmitter) {
@@ -34,9 +36,9 @@ export class BMOven extends BMUnit {
       this.currentCommand == "turn-pause"
     ) {
       if (this.heating) {
-        this.temp += 4;
+        this.temp += BMOven.INCREASE_TEMP;
       } else {
-        if (this.temp > 0) this.temp -= 2;
+        if (this.temp > 0) this.temp -= BMOven.DECREASE_TEMP;
       }
 
       //console.log("current oven temp: ", this.temp);
@@ -49,7 +51,7 @@ export class BMOven extends BMUnit {
     }
 
     if (this.currentCommand === "turn-off") {
-      if (this.temp > 0) this.temp -= 2;
+      if (this.temp > 0) this.temp -= BMOven.DECREASE_TEMP;
       this.stop();
     }
   }
@@ -121,9 +123,9 @@ export class BMOven extends BMUnit {
     return this.temp >= BMOven.MIN_TEMP && this.temp <= BMOven.MAX_TEMP;
   }
   checkColdTemp() {
-    return this.temp <= BMOven.MIN_TEMP;
+    return this.temp <= BMOven.MIN_TEMP + BMOven.DECREASE_TEMP;
   }
   checkOverHeatTemp() {
-    return this.temp >= BMOven.MAX_TEMP;
+    return this.temp >= BMOven.MAX_TEMP - BMOven.INCREASE_TEMP;
   }
 }

@@ -39,10 +39,7 @@ export const handleStamperStamp = () => {
   production[2 - 1] && (production[2 - 1].src = slots[2 - 1].src);
 };
 
-export const handleOvenHeat = (payload) => {
-  if (payload?.temp) {
-    ovenTemp.textContent = `Temp: ${payload.temp}`;
-  }
+export const handleOvenHeat = () => {
   oven &&
     gsap
       .timeline()
@@ -51,4 +48,10 @@ export const handleOvenHeat = (payload) => {
 
   production[4 - 1] && (production[4 - 1].src = slots[4 - 1].src);
   production[5 - 1] && (production[5 - 1].src = slots[5 - 1].src);
+};
+
+export const handleOvenTemp = (payload) => {
+  if (payload?.temp) {
+    ovenTemp.textContent = `Temp: ${payload.temp}`;
+  }
 };

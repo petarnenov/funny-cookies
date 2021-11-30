@@ -64,7 +64,6 @@ wss.on("connection", (ws: WebSocket) => {
     ws.send(JSON.stringify({ type: "oven-heat" }));
   });
   bm.eventBus.on("oven-temp", (ev) => {
-    console.log(ev);
     ws.send(JSON.stringify({ type: "oven-temp", payload: ev }));
   });
 });
