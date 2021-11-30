@@ -28,7 +28,7 @@ export class BMOven extends BMUnit {
 
   handlePulse(ev: BMOperationEvent, cb?: BMEventHandler): void {
     //console.log("oven state: ", this.state);
-    this.communicationManager.publish("oven-temp");
+    this.communicationManager.publish("oven-temp", { temp: this.temp });
     if (
       this.currentCommand === "turn-on" ||
       this.currentCommand == "turn-pause"
