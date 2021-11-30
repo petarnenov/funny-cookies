@@ -16,13 +16,59 @@
   </head>
   <body>
     <div class="container">
-      <div class="item">
+      <div class="machine">
         <img
-          id="settings-icon"
-          class="settings-icon"
-          src="./media/settings.png"
-          alt="settings-icon"
+          id="extruder"
+          class="extruder"
+          src="media/extruder.png"
+          alt="extruder"
         />
+        <img
+          id="stamper"
+          class="stamper"
+          src="media/stamper.png"
+          alt="stamper"
+        />
+        <img class="oven" src="media/oven.png" alt="oven" />
+        <img
+          id="b-extruded"
+          class="b-extruded"
+          src="media/b-extruded.png"
+          alt="b-extruded"
+        />
+        <img
+          id="b-stamped-1"
+          class="b-stamped-1"
+          src="media/b-stamped.png"
+          alt="b-stamped-1"
+        />
+        <img
+          id="b-stamped-2"
+          class="b-stamped-2"
+          src="media/b-stamped.png"
+          alt="b-stamped-2"
+        />
+        <img
+          id="b-backed-1"
+          class="b-backed-1"
+          src="media/b-backed.png"
+          alt="b-backed-1"
+        />
+        <img
+          id="b-backed-2"
+          class="b-backed-2"
+          src="media/b-backed.png"
+          alt="b-backed-2"
+        />
+        <img
+          id="b-backed-3"
+          class="b-backed-3"
+          src="media/b-backed.png"
+          alt="b-backed-3"
+        />
+        <img class="belt" src="media/belt.png" alt="belt" width="384px" />
+        <img id="motor" class="motor" src="./media/motor.png" alt="motor" />
+        <img class="switch" src="./media/switch.png" alt="switch" />
       </div>
       <div class="item">
         <button id="btn-start">Start</button>
@@ -31,47 +77,6 @@
       </div>
     </div>
 
-    <script defer>
-      const startBtn = document.querySelector("#btn-start");
-      const pauseBtn = document.querySelector("#btn-pause");
-      const stopBtn = document.querySelector("#btn-stop");
-      const settingIcon = document.querySelector("#settings-icon");
-
-      const ws = new WebSocket("ws://localhost:3333");
-
-      ws.onopen = (ev) => {
-        console.log(ev);
-      };
-      ws.onmessage = (ev) => {
-        console.log(ev);
-        const data = JSON.parse(ev.data);
-        const type = data?.type;
-        console.log(data?.type, data?.payload);
-        if (type) {
-          switch (type) {
-            case "motor-on": {
-              gsap.to(".settings-icon", { rotation: "+=36", duration: 0.1 });
-              console.log("kur");
-              break;
-            }
-            default: {
-              breka;
-            }
-          }
-        }
-      };
-
-      startBtn.addEventListener("click", (e) => {
-        fetch("http://localhost:3333/start");
-      });
-
-      pauseBtn.addEventListener("click", (e) => {
-        fetch("http://localhost:3333/pause");
-      });
-
-      stopBtn.addEventListener("click", (e) => {
-        fetch("http://localhost:3333/stop");
-      });
-    </script>
+    <script src="./index.js" defer></script>
   </body>
 </html>

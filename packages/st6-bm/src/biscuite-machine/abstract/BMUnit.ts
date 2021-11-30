@@ -92,7 +92,11 @@ export type BMAction = BMUnitAction | BMProductAction;
 
 export type BMSwitchAction = "turn-on" | "turn-pause" | "turn-off";
 export type BMPulseAction = "pulse-on" | "pulse-pause" | "pulse-off";
-export type BMMotorAcction = "motor-on" | "motor-pause" | "motor-off";
+export type BMMotorAcction =
+  | "motor-on"
+  | "motor-pause"
+  | "motor-off"
+  | "motor-step";
 export type BMConveyorAction =
   | "conveyor-load"
   | "conveyor-unload"

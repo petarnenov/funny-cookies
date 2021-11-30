@@ -32,7 +32,6 @@ export class BMMotor extends BMUnit {
 
   handleTurnOn(ev: BMOperationEvent, cb?: BMEventHandler) {
     this.currentCommand = "turn-on";
-
     this.start();
   }
 

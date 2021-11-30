@@ -42,7 +42,22 @@ wss.on("connection", (ws: WebSocket) => {
   //send immediatly a feedback to the incoming connection
   //ws.send("Hi there, I am a WebSocket server");
 
-  bm.eventBus.on("motor-on", (ev) => {
-    ws.send(JSON.stringify({ type: "motor-on" }));
+  bm.eventBus.on("motor-step", (ev) => {
+    ws.send(JSON.stringify({ type: "motor-step" }));
+  });
+  bm.eventBus.on("extruder-extrude", (ev) => {
+    ws.send(JSON.stringify({ type: "extruder-extrude" }));
+  });
+  bm.eventBus.on("stamper-stamp", (ev) => {
+    ws.send(JSON.stringify({ type: "stamper-stamp" }));
+  });
+  bm.eventBus.on("conveyor-load", (ev) => {
+    ws.send(JSON.stringify({ type: "conveyor-load" }));
+  });
+  bm.eventBus.on("conveyor-unload", (ev) => {
+    ws.send(JSON.stringify({ type: "stamper-stamp" }));
+  });
+  bm.eventBus.on("stamper-stamp", (ev) => {
+    ws.send(JSON.stringify({ type: "stamper-stamp" }));
   });
 });

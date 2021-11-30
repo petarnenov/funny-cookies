@@ -42,7 +42,7 @@ export class BM {
     /* */
 
     /* BMMotor */
-    this.motor.operations.push({ action: "motor-on", slots: [] });
+    this.motor.operations.push({ action: "motor-step", slots: [] });
     this.motor.startDependacies.push(this.oven);
     this.motor.stopDependacies.push(this.conveyor);
     /* */

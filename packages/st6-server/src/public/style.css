@@ -1,12 +1,85 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
   justify-content: center;
-  width: 300px;
+  width: 540px;
 }
 
 .item {
   width: 100px;
   margin: auto;
+}
+
+.extruder {
+  position: fixed;
+  top: 74px;
+  left: 64px;
+}
+
+.stamper {
+  position: fixed;
+  top: 64px;
+  left: 128px;
+}
+
+.oven {
+  position: fixed;
+  top: 72px;
+  left: 236px;
+}
+
+.belt {
+  position: fixed;
+  top: 172px;
+  left: 64px;
+}
+
+.motor {
+  position: fixed;
+  top: 192px;
+  left: 64px;
+  /* border: 3px solid #73ad21; */
+}
+
+.switch {
+  position: fixed;
+  top: 192px;
+  left: 192px;
+}
+
+.b-extruded {
+  position: fixed;
+  top: 164px;
+  left: 87px;
+}
+
+.b-stamped-1 {
+  position: fixed;
+  top: 164px;
+  left: 142px;
+}
+
+.b-stamped-2 {
+  position: fixed;
+  top: 164px;
+  left: 206px;
+}
+.b-backed-1 {
+  position: fixed;
+  top: 164px;
+  left: 270px;
+}
+.b-backed-2 {
+  position: fixed;
+  top: 164px;
+  left: 334px;
+}
+.b-backed-3 {
+  position: fixed;
+  top: 164px;
+  left: 400px;
+}
+
+machine {
+  position: relative;
 }
