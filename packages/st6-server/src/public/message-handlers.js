@@ -24,8 +24,8 @@ export const handleExtruderExtrude = () => {
   product.style.top = slots[0].y;
   product.src = slots[0].src;
   production.unshift(product);
-  let readyProduct = production.pop();
-  readyProduct = null;
+  // let readyProduct = production.pop();
+  // readyProduct = null;
 
   productionRoot.insertBefore(product, productionRoot.firstChild);
 };
@@ -54,4 +54,10 @@ export const handleOvenTemp = (payload) => {
   if (payload?.temp) {
     ovenTemp.textContent = `Temp: ${payload.temp}`;
   }
+};
+
+export const handleConveyorUnload = () => {
+  let readyProduct = production.pop();
+  readyProduct = null;
+  if (production.length < 6) production.unshift(null);
 };

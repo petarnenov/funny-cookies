@@ -1,5 +1,6 @@
 import { socketURL } from "./config.js";
 import {
+  handleConveyorUnload,
   handleExtruderExtrude,
   handleMotorStep,
   handleOvenHeat,
@@ -52,6 +53,10 @@ const messageDispatcher = (message) => {
     }
     case "oven-temp": {
       handleOvenTemp(payload);
+      break;
+    }
+    case "conveyor-unload": {
+      handleConveyorUnload();
       break;
     }
   }

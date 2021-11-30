@@ -55,7 +55,7 @@ wss.on("connection", (ws: WebSocket) => {
     ws.send(JSON.stringify({ type: "conveyor-load" }));
   });
   bm.eventBus.on("conveyor-unload", (ev) => {
-    ws.send(JSON.stringify({ type: "stamper-stamp" }));
+    ws.send(JSON.stringify({ type: "conveyor-unload" }));
   });
   bm.eventBus.on("stamper-stamp", (ev) => {
     ws.send(JSON.stringify({ type: "stamper-stamp" }));

@@ -63,7 +63,7 @@ export class BM {
     /* BMStamper */
     this.stamper.operations.push({ action: "stamper-stamp", slots: [2] });
     this.stamper.startDependacies.push(this.conveyor, this.extruder);
-    this.stamper.stopDependacies.push(this.extruder);
+    this.stamper.stopDependacies.push(this.conveyor);
     /* */
 
     /* BMOven */
