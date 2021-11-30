@@ -47,7 +47,7 @@ const messageDispatcher = (message) => {
       break;
     }
     case "oven-heat": {
-      handleOvenTemp();
+      handleOvenHeat();
       break;
     }
     case "oven-temp": {

@@ -51,8 +51,12 @@ export class BMOven extends BMUnit {
     }
 
     if (this.currentCommand === "turn-off") {
-      if (this.temp > 0) this.temp -= BMOven.DECREASE_TEMP;
-      this.stop();
+      if (this.canStop()) {
+        if (this.temp > 0) this.temp -= BMOven.DECREASE_TEMP;
+        this.stop();
+      } else {
+        this.emitOperations();
+      }
     }
   }
 
