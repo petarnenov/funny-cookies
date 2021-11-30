@@ -59,27 +59,6 @@
   left: 284px;
 }
 
-.b-stamped-2 {
-  position: fixed;
-  top: 164px;
-  left: 206px;
-}
-.b-backed-1 {
-  position: fixed;
-  top: 164px;
-  left: 270px;
-}
-.b-backed-2 {
-  position: fixed;
-  top: 164px;
-  left: 334px;
-}
-.b-backed-3 {
-  position: fixed;
-  top: 164px;
-  left: 400px;
-}
-
 machine {
   position: relative;
 }

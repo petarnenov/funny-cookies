@@ -6,6 +6,9 @@ import {
   handleOvenHeat,
   handleOvenTemp,
   handleStamperStamp,
+  handleSwitchOff,
+  handleSwitchOn,
+  handleSwitchPause,
 } from "./message-handlers.js";
 
 export const ws = new WebSocket(socketURL);
@@ -57,6 +60,18 @@ const messageDispatcher = (message) => {
     }
     case "conveyor-unload": {
       handleConveyorUnload();
+      break;
+    }
+    case "switch-on": {
+      handleSwitchOn();
+      break;
+    }
+    case "switch-pause": {
+      handleSwitchPause();
+      break;
+    }
+    case "switch-off": {
+      handleSwitchOff();
       break;
     }
   }

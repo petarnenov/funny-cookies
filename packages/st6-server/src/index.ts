@@ -66,4 +66,13 @@ wss.on("connection", (ws: WebSocket) => {
   bm.eventBus.on("oven-temp", (ev) => {
     ws.send(JSON.stringify({ type: "oven-temp", payload: ev }));
   });
+  bm.eventBus.on("turn-on", (ev) => {
+    ws.send(JSON.stringify({ type: "switch-on" }));
+  });
+  bm.eventBus.on("turn-pause", (ev) => {
+    ws.send(JSON.stringify({ type: "switch-pause" }));
+  });
+  bm.eventBus.on("turn-off", (ev) => {
+    ws.send(JSON.stringify({ type: "switch-off" }));
+  });
 });
