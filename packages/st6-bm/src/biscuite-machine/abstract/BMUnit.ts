@@ -82,7 +82,12 @@ class CommunicationManager {
   }
   publish(
     message: BMAction,
-    payload: BMOperationEvent | BMPulseEvent | BMProductEvent | null = null
+    payload:
+      | BMOperationEvent
+      | BMPulseEvent
+      | BMProductEvent
+      | BMOvenEvent
+      | null = null
   ) {
     this.emitter?.emit(message, payload);
   }
@@ -115,7 +120,12 @@ export type BMStamperAction =
   | "stamper-on"
   | "stamper-pause"
   | "stamper-off";
-export type BMOvenAction = "oven-heat" | "oven-on" | "oven-pause" | "oven-off";
+export type BMOvenAction =
+  | "oven-heat"
+  | "oven-on"
+  | "oven-pause"
+  | "oven-off"
+  | "oven-temp";
 
 export type BMUnitAction =
   | BMSwitchAction
@@ -139,6 +149,10 @@ export interface BMOperationEvent {
 
 export interface BMPulseEvent {
   pulseId: number;
+}
+
+export interface BMOvenEvent {
+  temp: number;
 }
 
 export interface BMProductEvent {

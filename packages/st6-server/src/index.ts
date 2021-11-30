@@ -60,4 +60,11 @@ wss.on("connection", (ws: WebSocket) => {
   bm.eventBus.on("stamper-stamp", (ev) => {
     ws.send(JSON.stringify({ type: "stamper-stamp" }));
   });
+  bm.eventBus.on("oven-heat", (ev) => {
+    ws.send(JSON.stringify({ type: "oven-heat" }));
+  });
+  bm.eventBus.on("oven-temp", (ev) => {
+    console.log(ev.data);
+    ws.send(JSON.stringify({ type: "oven-temp", payload: ev.data }));
+  });
 });

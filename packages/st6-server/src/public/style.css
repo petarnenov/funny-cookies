@@ -47,16 +47,16 @@
   left: 192px;
 }
 
-.b-extruded {
+.production {
   position: fixed;
   top: 164px;
   left: 87px;
 }
 
-.b-stamped-1 {
+.oven-temp {
   position: fixed;
-  top: 164px;
-  left: 142px;
+  top: 72px;
+  left: 284px;
 }
 
 .b-stamped-2 {
