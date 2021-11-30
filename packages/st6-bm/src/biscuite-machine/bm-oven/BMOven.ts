@@ -123,9 +123,9 @@ export class BMOven extends BMUnit {
     return this.temp >= BMOven.MIN_TEMP && this.temp <= BMOven.MAX_TEMP;
   }
   checkColdTemp() {
-    return this.temp <= BMOven.MIN_TEMP + BMOven.DECREASE_TEMP;
+    return this.temp < BMOven.MIN_TEMP + BMOven.DECREASE_TEMP;
   }
   checkOverHeatTemp() {
-    return this.temp >= BMOven.MAX_TEMP - BMOven.INCREASE_TEMP;
+    return this.temp > BMOven.MAX_TEMP - BMOven.INCREASE_TEMP;
   }
 }
