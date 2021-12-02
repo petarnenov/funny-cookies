@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public/media")));
 
+console.log(__dirname);
+
 app.get("/start", (req, res) => {
   bm.eventBus.emit("turn-on");
   res.send("Start");
