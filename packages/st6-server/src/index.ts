@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public/media")));
 
-console.log(__dirname);
-
 app.get("/start", (req, res) => {
   bm.eventBus.emit("turn-on");
   res.send("Start");
@@ -29,7 +27,7 @@ app.get("/stop", (req, res) => {
 });
 
 const server = app.listen(3333, () => {
-  "Server start listenig on port: 3333";
+  console.log("Server start listenig on port: 3333");
 });
 
 const wss = new WebSocketServer({ server });
@@ -38,12 +36,9 @@ wss.on("connection", (ws: WebSocket) => {
   //connection is up, let's add a simple simple event
   ws.on("message", (message: string) => {
     //log the received message and send it back to the client
-    console.log("received: %s", message);
-    ws.send(`Hello, you sent -> ${message}`);
+    // console.log("received: %s", message);
+    // ws.send(`Hello, you sent -> ${message}`);
   });
-
-  //send immediatly a feedback to the incoming connection
-  //ws.send("Hi there, I am a WebSocket server");
 
   bm.eventBus.on("motor-step", (ev) => {
     ws.send(JSON.stringify({ type: "motor-step" }));
