@@ -12,7 +12,7 @@ This project contains two packages:
 - Motor  
    emitted events: "motor-on" | "motor-step" | "motor-off"
 - Conveyor  
-   emmited events: "conveyor-on" | "conveyor-off" | "conveyor-load" | "convyeor-production-ready"
+   emmited events: "conveyor-on" | "conveyor-off" | "conveyor-load" | "conveyor-product-ready"
 - Extruder - unlimitted biscuit material  
    emitted events: "extruder-on" | "extruder-off" | "extruder-extrude"
 - Stamper  
