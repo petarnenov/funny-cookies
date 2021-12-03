@@ -5,7 +5,7 @@
 This project contains two packages:
 
 1.  st6-bm  
-    Represent OOP model of Biscuite Machine conveyor, with predefined:
+    Represent OOP model of biscuit Machine conveyor, with predefined:
 
 - Switch  
    emitted events: "turn-on" | "turn-pause" | "turn-off"
@@ -13,17 +13,17 @@ This project contains two packages:
    emitted events: "motor-on" | "motor-step" | "motor-off"
 - Conveyor  
    emmited events: "conveyor-on" | "conveyor-off" | "conveyor-load" | "convyeor-production-ready"
-- Extruder - unlimitted biscuite material  
+- Extruder - unlimitted biscuit material  
    emitted events: "extruder-on" | "extruder-off" | "extruder-extrude"
 - Stamper  
    emitted events: "stamper-on" | "stamper-off" | "stamper-stamp"
 - Oven - working temp 220-240  
    emitted events: "oven-on" | "oven-off" | "oven-heat"
-- Product - biscuite
+- Product - biscuit
 
 ```javascript
     {
-        id: 'biscuite',
+        id: 'biscuit',
         serialNumber: 123456789,
         applyedActions: [ 'extruder-extrude', 'stamper-stamp', 'oven-heat', 'oven-heat' ]
     }
@@ -43,7 +43,7 @@ pre installed [NODE.js](https://nodejs.dev/)
 npx @pnp-js/st6-server
 ```
 
-and open in browser [BiscuiteMachine](http://localhost:3333)
+and open in browser [BiscuitMachine](http://localhost:3333)
 
 2. Import only @pnp-js/st6-bm
 
@@ -53,10 +53,10 @@ npm install @pnp-js/st6-bm
 
 ```javascript
 const { BM } = require("@pnp-js/st6-bm");
-const biscuiteMachine = new BM();
-const eventBus = biscuiteMachine.eventBus;
+const biscuitMachine = new BM();
+const eventBus = biscuitMachine.eventBus;
 
-//start Biscuite Machine, by emitting <turn-on> event
+//start Biscuit Machine, by emitting <turn-on> event
 eventBus.emit("turn-on");
 
 //subscribe to <conveyor-product-ready> event
@@ -77,7 +77,7 @@ function handleOvenTemp(message) {
   console.log("oven-temp: ", temp);
 }
 
-//stop Biscuite Machine
+//stop Biscuit Machine
 setTimeout(() => {
   eventBus.emit("turn-off");
   setTimeout(() => {
