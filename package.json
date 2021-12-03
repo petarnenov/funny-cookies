@@ -8,5 +8,9 @@
     "start": "lerna run start --parallel",
     "debug": "lerna run debug --parallel",
     "format": "lerna run format --parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petarnenov/funny-cookies.git"
   }
 }
