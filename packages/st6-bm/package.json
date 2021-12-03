@@ -7,6 +7,7 @@
     "lib/**/*"
   ],
   "scripts": {
+    "build:watch": "tsc -w",
     "start": "ts-node src/index.ts",
     "format": "prettier -w src/*",
     "debug": "nodemon src/index.ts",

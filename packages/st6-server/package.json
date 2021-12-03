@@ -19,6 +19,7 @@
     "access": "public"
   },
   "scripts": {
+    "build:watch":"tsc -w",
     "debug": "nodemon src/index.ts",
     "start": "ts-node src/index.ts",
     "format": "prettier -w src/*",

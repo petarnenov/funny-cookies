@@ -1,5 +1,6 @@
 import { socketURL } from "./config.js";
 import {
+  handleConveyorProductReady,
   handleConveyorUnload,
   handleExtruderExtrude,
   handleMotorStep,
@@ -72,6 +73,10 @@ const messageDispatcher = (message) => {
     }
     case "switch-off": {
       handleSwitchOff();
+      break;
+    }
+    case "conveyor-product-ready": {
+      handleConveyorProductReady(payload);
       break;
     }
   }

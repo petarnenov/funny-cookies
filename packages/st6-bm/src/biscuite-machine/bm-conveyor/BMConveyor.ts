@@ -25,6 +25,9 @@ export class BMConveyoer extends BMUnit {
       }
     }
     if (this.currentCommand === "turn-off") {
+      if (this.state === "on") {
+        this.state = "ready";
+      }
       if (
         this.canStop() &&
         this.productionOnBelt.every((product) => product === null)
@@ -70,7 +73,7 @@ export class BMConveyoer extends BMUnit {
 
   prepareToPause(cb?: CallableFunction): Promise<BMUnitState> {
     return new Promise((resolve, reject) => {
-      resolve("off");
+      resolve("on");
     });
   }
 
@@ -150,9 +153,11 @@ export class BMConveyoer extends BMUnit {
   handleConveyorUnload(e: BMOperationEvent) {
     e.slots?.forEach((slot) => {
       const productionUnload = this.productionOnBelt.splice(slot, 1);
-      this.communicationManager.publish("conveyor-product-ready", {
-        product: productionUnload?.[0]!,
-      });
+      if (productionUnload?.[0]) {
+        this.communicationManager.publish("conveyor-product-ready", {
+          product: productionUnload?.[0]!,
+        });
+      }
       //console.log("product unload: ", this.productionOnBelt);
     });
   }

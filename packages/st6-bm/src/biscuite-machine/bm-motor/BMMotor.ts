@@ -19,6 +19,9 @@ export class BMMotor extends BMUnit {
       }
     }
     if (this.currentCommand === "turn-off") {
+      if (this.state === "on") {
+        this.state = "ready";
+      }
       if (this.canStop()) {
         this.stop();
       } else {
@@ -60,7 +63,7 @@ export class BMMotor extends BMUnit {
 
   prepareToPause(cb?: CallableFunction): Promise<BMUnitState> {
     return new Promise((resolve, reject) => {
-      resolve("off");
+      resolve("on");
     });
   }
 

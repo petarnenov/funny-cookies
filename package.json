@@ -4,8 +4,9 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
+    "build:watch": "lerna run build:watch --parallel",
     "start": "lerna run start --parallel",
     "debug": "lerna run debug --parallel",
-    "format":"lerna run format --parallel"
+    "format": "lerna run format --parallel"
   }
 }

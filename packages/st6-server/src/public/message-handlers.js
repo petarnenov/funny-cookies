@@ -94,3 +94,7 @@ export const handleSwitchPause = () => {
 export const handleSwitchOff = () => {
   switchBtn.src = "./media/switch-off.png";
 };
+
+export const handleConveyorProductReady = (payload) => {
+  console.log("product ready: ", payload);
+};

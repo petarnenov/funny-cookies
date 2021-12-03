@@ -73,4 +73,7 @@ wss.on("connection", (ws: WebSocket) => {
   bm.eventBus.on("turn-off", (ev) => {
     ws.send(JSON.stringify({ type: "switch-off" }));
   });
+  bm.eventBus.on("conveyor-product-ready", (ev) => {
+    ws.send(JSON.stringify({ type: "conveyor-product-ready", payload: ev }));
+  });
 });
