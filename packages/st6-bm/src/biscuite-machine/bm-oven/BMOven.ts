@@ -7,10 +7,10 @@ import {
 } from "../abstract/BMUnit";
 
 export class BMOven extends BMUnit {
-  static readonly MIN_TEMP = 10;
-  static readonly MAX_TEMP = 20;
+  static readonly MIN_TEMP = 220;
+  static readonly MAX_TEMP = 240;
   static readonly DECREASE_TEMP = 2;
-  static readonly INCREASE_TEMP = 4;
+  static readonly INCREASE_TEMP = 5;
   temp: number = 0;
   heating: boolean = false;
   constructor(bmEventEmitter: EventEmitter) {
